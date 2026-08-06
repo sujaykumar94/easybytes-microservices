@@ -1,16 +1,13 @@
 server:
-  port: 8090
+  port: 9001
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
-    username: sa
-    password: ''
-  h2:
-    console:
-      enabled: true
+    url: jdbc:postgresql://localhost:5432/loans
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: root
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    #    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
