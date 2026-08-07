@@ -1,0 +1,50 @@
+> mvn clean install   --To create a jar (run it form the directory where pom.xml is present) After running this command, jar of respective application is created in /target folder
+> mvn spring-boot:run  --Maven command To run the jar present in the given directory. (Same as running the m/s application)
+> mvn spring-boot:run -Dspring-boot.run.profiles=local   --To create jar with specific profile	
+> easybytes-microservices\accounts\target>java -jar accounts-0.0.1-SNAPSHOT.jar    --java command to run the Jar
+
+
+
+
+Docker commands
+> docker version    --Check docker version
+
+#Comamnd to build the docker image from Dockerfile. -t => tag
+Syntax 	> docker build . -t <dockerUsername>/<imageName>:<version>
+	> docker build . -t kumarsujay1994/accounts:easybytes1
+
+
+#To List all the images 
+> docker images
+
+#To delete the image
+> docker rmi <imageId>
+
+
+# To inspect any docker image and see the image details
+Syntax :  docker inspect  <imageID>
+	> docker inspect  0a63aa899386
+
+#To run the docker container with the docker image. -p => port
+Syntax  > docker run -p <Host Port>:<Container Port> <imagename:tag>
+	> docker run -p 8080:8080 kumarsujay1994/accounts:easybytes1
+
+
+#To run docker container with specific profile. -e => environment (same as above)
+
+Syntax  > docker run -e SPRING_PROFILES_ACTIVE = <profileName> -p <hostPort>:<containerPort> <imagename:tag>
+	> docker run -e SPRING_PROFILES_ACTIVE = docker        -p       8080:8080    	      kumarsujay1994/accounts:easybytes1
+
+
+# To display the containers currently running 
+> docker ps
+
+# To display all the containers. -a => all
+> docker ps -a
+
+# To start already created container
+> docker start <containerId>
+
+# To stop already created container
+> docker stop <containerId>
+
