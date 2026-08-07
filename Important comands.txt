@@ -32,8 +32,8 @@ Syntax  > docker run -p <Host Port>:<Container Port> <imagename:tag>
 
 #To run docker container with specific profile. -e => environment (same as above)
 
-Syntax  > docker run -e SPRING_PROFILES_ACTIVE = <profileName> -p <hostPort>:<containerPort> <imagename:tag>
-	> docker run -e SPRING_PROFILES_ACTIVE = docker        -p       8080:8080    	      kumarsujay1994/accounts:easybytes1
+Syntax  > docker run -e SPRING_PROFILES_ACTIVE=<profileName> -p <hostPort>:<containerPort> <imagename:tag>
+	> docker run -e SPRING_PROFILES_ACTIVE=docker -p 8080:8080 kumarsujay1994/accounts:easybytes1
 
 
 # To display the containers currently running 
