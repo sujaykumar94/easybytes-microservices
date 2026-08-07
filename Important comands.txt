@@ -48,3 +48,61 @@ Syntax  > docker run -e SPRING_PROFILES_ACTIVE=<profileName> -p <hostPort>:<cont
 # To stop already created container
 > docker stop <containerId>
 
+# To delete the container.
+> docker rm <containerId>
+
+
+
+__________________________________________________________________________________________________________________
+#Steps to generate docker image using build packs
+
+1) on pom.xml
+		<artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>kumarsujay1994/${project.artifactId}:easybytes1</name>
+                    </image>
+
+2) Build the image	
+	> mvn spring-boot:build-image     
+3) Run the image
+	 >docker run -e SPRING_PROFILES_ACTIVE=docker -p 8090:8090 0b585ad6628
+
+__________________________________________________________________________________________________________________
+#Steps to generate docker image using Google Jib
+
+1) on pom.xml add below plugin.
+	     <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.5.2</version>
+                <configuration>
+                    <to>
+                        <image>kumarsujay1994/${project.artifactId}:easybytes1</image>
+                    </to>
+                </configuration>
+            </plugin>
+
+2) Build the image
+	> mvn compile jib:dockerBuild
+
+3) Run the docker image
+	> docker run -e SPRING_PROFILES_ACTIVE=docker -p 9000:9000 kumarsujay1994/cards:easybytes1
+
+
+	
+
+
+
+
+
+
+
+DeepSeek : API KEy
+sk-11e57c8db2e04aa1906f14431523a68d
+
+OPEN ROUTER api KEY
+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
+
+
+
