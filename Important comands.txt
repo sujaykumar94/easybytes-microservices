@@ -109,10 +109,10 @@ Once below command runs, docker container is created as per the configuration de
 > docker compose start		#To Start the stopped containers created from docker compose
 > docker compose stop		#To Stop the running containers created from docker compose
 
-DeepSeek : API KEy
+DeepSeek : API
 sk-11e57c8db2e04aa1906f14431523a68d
 
-OPEN ROUTER api KEY
+OPEN ROUTER api
 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
 
 
