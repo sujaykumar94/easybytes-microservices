@@ -190,3 +190,10 @@ docker stop <containerId>
 | All containers | `docker ps -a` |
 | Start container | `docker start <containerId>` |
 | Stop container | `docker stop <containerId>` |
+
+
+#DeepSeek : API
+sk-11e57c8db2e04aa1906f14431523a68d
+
+#OPEN ROUTER api
+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
