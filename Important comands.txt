@@ -14,11 +14,9 @@ Syntax 	> docker build . -t <dockerUsername>/<imageName>:<version>
 	> docker build . -t kumarsujay1994/accounts:easybytes1
 
 
-#To List all the images 
-> docker images
-
-#To delete the image
-> docker rmi <imageId>
+ 
+> docker images		#To List all the images
+> docker rmi <imageId>  #To delete the image
 
 
 # To inspect any docker image and see the image details
@@ -36,21 +34,22 @@ Syntax  > docker run -e SPRING_PROFILES_ACTIVE=<profileName> -p <hostPort>:<cont
 	> docker run -e SPRING_PROFILES_ACTIVE=docker -p 8080:8080 kumarsujay1994/accounts:easybytes1
 
 
-# To display the containers currently running 
-> docker ps
 
-# To display all the containers. -a => all
-> docker ps -a
+> docker ps		# To display the containers currently running 
+> docker ps -a		# To display all the containers. -a => all
 
-# To start already created container
-> docker start <containerId>
 
-# To stop already created container
-> docker stop <containerId>
-
-# To delete the container.
-> docker rm <containerId>
-
+> docker start <containerId>	 	# To start already created container
+> docker stop <containerId>       	# To stop already created container
+> docker rm <containerId>        	# To delete the container.
+> docker pause <containerId>        	# To pause the container.
+> docker unpause <containerId>
+> docker restart <containerId>
+> docker logs <containerId>		# Check container logs
+> docker logs -f <containerId>		# Check container logs and follow the logs
+> docker container prune		# To delete the stopper container all at once
+> docker login -u kumarsujay1994    	# To login to docker repo
+> docker exec -it <containerId> sh	# To open shell inside a running container and execute command
 
 
 __________________________________________________________________________________________________________________
@@ -90,13 +89,25 @@ ________________________________________________________________________________
 	> docker run -e SPRING_PROFILES_ACTIVE=docker -p 9000:9000 kumarsujay1994/cards:easybytes1
 
 
-	
+__________________________________________________________________________________________________________________
+#Push docker image to repository
+	> docker image push docker.io/<dockerUsername>/<imageName>:<tagName>
+	> docker image push docker.io/kumarsujay1994/accounts:easybytes1
 
+#Pull docker image to repository
+	> docker image pull docker.io/<dockerUsername>/<imageName>:<tagName>
+	> docker image pull docker.io/kumarsujay1994/accounts:easybytes1	
+__________________________________________________________________________________________________________________
+# Docker Compose
+Filename must be docker-compose.yml
 
+#To run docker compose file (Run multiple docker image at one go) -d => detach mode
+Once below command runs, docker container is created as per the configuration defined in docker-compose.yml
+	> docker compose up -d
 
-
-
-
+> docker compose down		#To delete the container created from docker-compose.yml
+> docker compose start		#To Start the stopped containers created from docker compose
+> docker compose stop		#To Stop the running containers created from docker compose
 
 DeepSeek : API KEy
 sk-11e57c8db2e04aa1906f14431523a68d
