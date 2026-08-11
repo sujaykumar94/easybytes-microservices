@@ -1,6 +1,7 @@
 package com.eazybytes.accounts.controller;
 
 import com.eazybytes.accounts.constants.AccountsConstants;
+import com.eazybytes.accounts.dto.AccountContactInfoDto;
 import com.eazybytes.accounts.dto.CustomerDto;
 import com.eazybytes.accounts.dto.ErrorResponseDto;
 import com.eazybytes.accounts.dto.ResponseDto;
@@ -14,6 +15,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,11 +27,25 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "CRUD REST APIs for Accounts in EazyBank", description = "Controller for managing customer accounts")
 @RestController
 @RequestMapping(path = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
-@AllArgsConstructor
+//@AllArgsConstructor
 @Validated
 public class AccountsController {
+    @Value("${build.version}")
+    public String buildVersion;
 
     private IAccountsService iAccountsService;
+
+    @Autowired
+    private Environment environment;
+
+    @Autowired
+    private AccountContactInfoDto accountContactInfoDto;
+
+    public AccountsController(IAccountsService iAccountsService) {
+        this.iAccountsService = iAccountsService;
+    }
+
+
     @PostMapping("/create")
     @Operation(summary = "Create a new customer account", description = "This API creates a new customer account in the system.")
     @ApiResponses(value = {
@@ -99,4 +117,24 @@ public class AccountsController {
                     .body(new ResponseDto(AccountsConstants.STATUS_417, AccountsConstants.MESSAGE_417_DELETE));
         }
     }
+
+
+
+    @GetMapping("/build-info")
+    public ResponseEntity<String> valueConfigurationDemo() {
+        return ResponseEntity.ok(buildVersion);
+    }
+
+
+    @GetMapping("/java-version")
+    public ResponseEntity<String> environmentVariableConfigurationDemo() {
+        return ResponseEntity.ok(environment.getProperty("JAVA_HOME"));
+    }
+
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountContactInfoDto> configurationPropertiesDemo() {
+        return ResponseEntity.ok(accountContactInfoDto);
+    }
+
+
 }

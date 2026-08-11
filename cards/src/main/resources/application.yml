@@ -11,3 +11,13 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
+
+build:
+  version: 2.0.0
+
+cards:
+  message: "Welcome to the Card Management System"
+  contactDetails:
+    name: "John Doe"
+    email: "John@gmail.com"
+  onCallSupport: 11111111,2222222,33333333

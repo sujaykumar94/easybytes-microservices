@@ -111,5 +111,14 @@ Once below command runs, docker container is created as per the configuration de
 
 
 
+nvidia APi key : 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
+
+
+Run before running powershell command below : uv run uvicorn server:app --host 0.0.0.0 --port 8082
+Powershell command for free claude : $env:ANTHROPIC_AUTH_TOKEN="freecc"; $env:ANTHROPIC_BASE_URL="http://localhost:8082"; claude
+
+
+
+
 
 

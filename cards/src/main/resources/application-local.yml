@@ -11,3 +11,6 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
+
+build:
+  version: 52.0.0

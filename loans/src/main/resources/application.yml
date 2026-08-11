@@ -11,3 +11,12 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
+build:
+  version: 10.0.0
+
+loans:
+  message: "Welcome to the Loan Management System"
+  contactDetails:
+    name: "Suraj Kumar"
+    email: "Surajkumar@gmail.com"
+  onCallSupport: 55555555,66666666666,77777777777
