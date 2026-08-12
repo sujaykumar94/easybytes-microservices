@@ -1,0 +1,44 @@
+services:
+  accounts:
+    image: kumarsujay1994/accounts:easybytes1
+    container_name: accounts-ms
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+          limits:
+            memory: 512M
+    networks:
+        - easybank
+  loans:
+    image: kumarsujay1994/loans:easybytes1
+    container_name: loans-ms
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700M
+    networks:
+      - easybank
+  cards:
+    image: kumarsujay1994/cards:easybytes1
+    container_name: cards-ms
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    networks:
+      - easybank
+
+networks:
+  easybank:
+    driver: bridge
